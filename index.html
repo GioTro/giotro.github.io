@@ -41,7 +41,7 @@
 			border-radius: 30px; 
 			display: block; 
 			padding: 0; 
-			width: 51%; 
+			width: 947px; 
 			box-shadow: 10px 10px 10px black;
 	}
 </style>
@@ -118,7 +118,8 @@
   					border-radius: 8px;
   					margin: 0 auto;
   					text-align: center;
-  					background-color: #4d2044; 
+  					background-color: #4d2044;
+  					box-shadow: 10px 10px 10px black; 
   				}
   				h2 	{
   					text-shadow: '-2px 2px 2px #999'; 
@@ -126,11 +127,30 @@
   				}
 			</style>
 				<div>
-						<h1 style= 'color: #4E9A06'>CONTACT:</h1>
+						<h1 style= 'color: #4E9A06; text-shadow: 1px 2px 2px black'>CONTACT:</h1>
 						<a href = 'mailto:giorgos@trogadas.com', style='color: #3465A4', text-shadow= '-2px 2px 2px #999'>
-							<h2>giorgos@trogadas.com</h2>
+							<h2 style = 'text-shadow: 1px 2px 2px black'>giorgos@trogadas.com</h2>
 						</a>
+						<h1 style = 'color: #4E9A06; text-shadow: 1px 2px 2px black'> VISITORS: </h1>
+							<h1><span id = 'CounterVisitor', style = 'color: #3465A4; text-shadow: 3px 3px 3px black'/></h1>
 				</div>
+
 	</body>
+	<script>
+					var n = localStorage.getItem('on_load_counter');
+
+					if (n === null) {
+					n = 0;
+					}
+						n++;
+
+						localStorage.setItem("on_load_counter", n);
+
+						nums = n.toString().split('').map(Number);
+						document.getElementById('CounterVisitor').innerHTML = '';
+						for (var i of nums) {
+							document.getElementById('CounterVisitor').innerHTML += '<span class="counter-item">' + i + '</span>';
+					}
+	</script>
 </html>
 
