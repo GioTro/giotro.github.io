@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<style>
-			h1 		{text-align: center;}
-			h2 		{text-align: center;}
-			p 		{text-align: center;}
-			div 	{text-align: center;}
-			pre 	{text-align: center;}
-		</style>
-	</head>
-	
-	<body style= 'background-color: #073642'>
-		<pre>
-		
+
+<head>
+	<style>
+		h1 {
+			text-align: center;
+		}
+
+		h2 {
+			text-align: center;
+		}
+
+		p {
+			text-align: center;
+		}
+
+		div {
+			text-align: center;
+		}
+
+		pre {
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body style='background-color: #073642'>
+	<pre>
+
 <code style = 'color: #9daeb3; text-align: center; letter-spacing: 1.2px; line-height: 1.3; text-shadow: -2px 2px 2px black'>
 	+---------------------------------------------------------------------------------------------------------------------------------+
 	|  ###████████╗██╗##██╗███████╗####███╗###███╗#█████╗##██████╗#███╗###██╗██╗███████╗██╗#██████╗███████╗███╗###██╗████████╗██╗#### |
@@ -108,100 +123,81 @@
                             (((((((((((((///////////////////////////(////////*                                           
 </code>
 		</pre>
-			<style>
-				div {
-					text-align: center;
-				  	width: 360px;
-  					padding: 10px;
-  					border-color: #8f4300;
-  					border-style: solid;
-  					border-width: 5px;
-  					border-radius: 8px;
-  					margin: 0 auto;
-  					text-align: center;
-  					background-color: #4d2044;
-  					box-shadow: 10px 10px 10px black; 
-  				}
-  				h2 	{
-  					text-shadow: '-2px 2px 2px #999'; 
-  					text-align: 'centering'
-  				}
-			</style>
-				<div>
-						<h1 style = 'color: #4E9A06; text-shadow: 1px 2px 2px black'>CONTACT:</h1>
-						<a href = 'mailto:giorgos@trogadas.com', style = 'color: #3465A4', style = 'text-shadow: -2px 2px 2px #999'>
-							<h2 style = 'text-shadow: 1px 2px 2px black'>giorgos@trogadas.com</h2>
-						</a>
-						<h2 style = 'color: #4E9A06; text-shadow: 1px 2px 2px black'> LOCAL FIZZBUZZ TIME: </h2>
-							<h1><span id = 'time', style = 'color: #3465A4; text-shadow: 3px 3px 3px black'/></h1>
-				</div>
+	<style>
+		div {
+			text-align: center;
+			width: 360px;
+			padding: 10px;
+			border-color: #8f4300;
+			border-style: solid;
+			border-width: 5px;
+			border-radius: 8px;
+			margin: 0 auto;
+			text-align: center;
+			background-color: #4d2044;
+			box-shadow: 10px 10px 10px black;
+		}
 
-	</body>
+		h2 {
+			text-shadow: '-2px 2px 2px #999';
+			text-align: 'centering'
+		}
+	</style>
+	<div>
+		<h1 style='color: #4E9A06; text-shadow: 1px 2px 2px black'>CONTACT:</h1>
+		<a href='mailto:giorgos@trogadas.com' , style='color: #3465A4' , style='text-shadow: -2px 2px 2px #999'>
+			<h2 style='text-shadow: 1px 2px 2px black'>giorgos@trogadas.com</h2>
+		</a>
+		<h2 style='color: #4E9A06; text-shadow: 1px 2px 2px black'> LOCAL FIZZBUZZ TIME: </h2>
+		<h1><span id='time' , style='color: #3465A4; text-shadow: 3px 3px 3px black' /></h1>
+	</div>
+
+</body>
 <script>
-var time = localStorage.getItem
+	var time = localStorage.getItem
 
-function hyperPadder(i) {
-  if (i < 10) {
-	i = "0" + i;
-  }
-  return i;
-}
-
-function fizzbuzzify(n) {
-	out = '';
-	nn = parseInt(n);
-	
-	if (nn % 3 == 0) {
-		out += 'fizz';
+	function hyperPadder(i) {
+		if (i < 10) {
+			i = "0" + i;
+		}
+		return i;
 	}
-	
-	if (nn % 5 == 0) {
-		out += 'buzz';
+
+	function fizzbuzzify(n) {
+		out = '';
+		nn = parseInt(n);
+
+		if (nn % 3 == 0) {
+			out += 'fizz';
+		}
+
+		if (nn % 5 == 0) {
+			out += 'buzz';
+		}
+
+		if (out.length > 0) {
+			return out;
+		} else {
+			return hyperPadder(n);
+		}
 	}
-	
-	if (out.length > 0) {
-		return out;
-	} else {
-		return hyperPadder(n);
+
+	function startTime() {
+		var today = new Date();
+
+		var h = today.getHours();
+		var m = today.getMinutes();
+		var s = today.getSeconds();
+
+		h = fizzbuzzify(h);
+		m = fizzbuzzify(m);
+		s = fizzbuzzify(s);
+
+		document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+		t = setTimeout(function () {
+			startTime()
+		}, 500);
 	}
-}
-
-function startTime() {
-  var today = new Date();
-  
-  var h = today.getHours();
-  var m = today.getMinutes();
-  var s = today.getSeconds();
-  
-  h = fizzbuzzify(h);
-  m = fizzbuzzify(m);
-  s = fizzbuzzify(s);
-  
-  document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
-  t = setTimeout(function() {
-	startTime()
-  }, 500);
-}
-startTime();
-					
-/** Coming soon
-var n = localStorage.getItem('on_load_counter');
-
-if (n === null) {
-n = 0;
-}
-	n++;
-
-	localStorage.setItem('on_load_counter', n);
-
-	nums = n.toString().split('').map(Number);
-	document.getElementById('CounterVisitor').innerHTML = '';
-	
-	Coming soon:
-	for (var i of nums) {
-	 	document.getElementById('CounterVisitor').innerHTML += "<span class='counter-item'>" + i + '</span>';
-}
-*/
+	startTime();
 </script>
 </html>
-
